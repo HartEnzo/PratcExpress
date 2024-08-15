@@ -6,18 +6,22 @@ const port = 5000
 app.use(express.json())
 
 /* Como pegar os dados que vem do cliente */
-// app.get("/:usuario/:repositorio", (req, res) => {
+ app.get("/:usuario/:repositorio", (req, res) => {
     
-//     console.log("antes do ?:", req.params.usuario, req.params.repositorio)
-//     console.log("depois do ?:", req.query.id, req.query.idade)
-//     console.log("corpo da requisição: ", req.body.cidade, req.body.bairro)
+     console.log("antes do ?:", req.params.usuario, req.params.repositorio)
+     console.log("depois do ?:", req.query.id, req.query.idade)
+     console.log("corpo da requisição: ", req.body.cidade, req.body.bairro)
 
-//     res.send("Tá frio demais")
-// })
+     res.send("Tá frio demais")
+
+    })
 /* Como pegar os dados que vem do cliente */
 
 app.get("/corretora", (req, res) => {
-    res.json(corretora.index())
+    // processamento
+    const content = corretora.index()
+    // resposta
+    res.json(content)
 })
 
 app.post("/corretora", (req, res) => {
